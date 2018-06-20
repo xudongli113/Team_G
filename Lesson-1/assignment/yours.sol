@@ -43,7 +43,7 @@ contract Payroll {
         require(msg.sender == employee);
         
         uint nextPayday = lastPayday + payDuration;
-        assert(nextPayday < now);
+        require(nextPayday < now);
 
         lastPayday = nextPayday;
         employee.transfer(salary);
